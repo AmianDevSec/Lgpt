@@ -1,0 +1,5 @@
+__pycache__/
+*.spec
+.vscode/
+auto-push.sh
+Lgpt-backend/
