@@ -10,6 +10,8 @@ thinking_thread = threading.Thread(
     target=thinking_effect, kwargs={"stop_event": stop_event}
 )
 
+LGPT_VERSION = "1.2.0"
+
 def parse_args():
     response = None
 
@@ -41,19 +43,29 @@ def parse_args():
             help="Update Lgpt to latest version."
         )
 
+        parser.add_argument(
+            "-v","--version",
+            action="store_true",
+            help="See Lgpt version."
+        )
+
         args = parser.parse_args()
         model = args.model
         update = parser.update
+        version = parser.version
+
         
         if update:
             # call update funciton
             ...
+        elif version:
+            response = LGPT_VERSION
         elif not sys.stdin.isatty():
             prompt = sys.stdin.read().strip()
         else:
             prompt = " ".join(args.prompt)
 
-        response = process_query(prompt, model)
+        response = process_query(prompt, model) if not bool(response) else response
 
     except (KeyboardInterrupt, EOFError):
         response = "Process interrupted by user. Exiting..."
