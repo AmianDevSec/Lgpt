@@ -14,6 +14,10 @@ H5 = "\033[1;35m"
 H6 = "\033[1;90m"
 BULLET = "\033[33m•"
 QUOTE = "\033[3;90m"
+GREEN = "\033[32m"
+RED = "\033[31m"
+GREEN_2 = "\x1b[38;5;82m"
+YELLOW = "\x1b[1;38;5;226m"
 
 def format_code_block(match):
     code = match.group(1)

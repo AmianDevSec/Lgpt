@@ -1,13 +1,22 @@
 import time
 import sys
 import itertools
-from markdown_handler import markdown_to_ansi
-from markdown_handler import GRAY, RESET
+from markdown_handler import (
+    markdown_to_ansi, 
+    RED, 
+    RESET,
+    BOLD, 
+    GRAY,
+    GREEN,
+    YELLOW,
+    GREEN_2,
+    BLUE
+)
 
 def thinking_effect(message="Thinking", stop_event=None):
     """Display a thinking animation in the terminal.
     This function prints a message followed by a series of dots that cycle
-
+    
     Args:
         message (str, optional): The message to display. Defaults to "Thinking".
         stop_event (threading.Event, optional): An event to signal when to stop the animation. Defaults to None.
@@ -32,12 +41,12 @@ def typewriter(text: str, delay=0.004):
     """
     Print styled ANSI-formatted text character by character.
     """
-    
+
     styled = markdown_to_ansi(text)
 
     if not styled.strip():
         return
-    
+
     i = 0
     while i < len(styled):
         char = styled[i]
@@ -60,14 +69,44 @@ def typewriter(text: str, delay=0.004):
 
     print()
 
-def custom_assert(condition: bool, message: str):
-    """
-    Custom assert function to raise an AssertionError with a message if the condition is False.
+# def custom_assert(condition: bool, message: str):
+#     """
+#     Custom assert function to raise an AssertionError with a message if the condition is False.
 
-    Args:
-        condition (bool): The condition to check.
-        message (str): The message to display if the assertion fails.
+#     Args:
+#         condition (bool): The condition to check.
+#         message (str): The message to display if the assertion fails.
+#     """
+
+#     if not condition:
+#         typewriter(f"{RED}{BOLD}{message}{RESET}")
+#         sys.exit(1)
+
+
+def helper() -> str:
     """
-    if not condition:
-        typewriter(message)
-        sys.exit(1)
+    Display a help message with usage instructions.
+    
+    Returns:
+        str: The formatted help message.
+    """
+
+    help_message = f"""{BOLD}{GREEN_2}Usage:{RESET} lgpt.py [-h] [--model {{perplexity, gemini, deepseek, llama}}] [-u UPDATE] [-v] [prompt ...]
+
+    {BOLD}{BLUE}Lgpt:{RESET} A command-line utility for managing and interacting with large language models (LLMs) directly from the Linux terminal.
+
+    {BOLD}{YELLOW}Positional arguments:{RESET}
+    {GREEN}prompt{RESET}                The prompt to send to the selected model.
+
+    {BOLD}{YELLOW}Optional arguments:{RESET}
+    {GREEN}-h{RESET}, {GREEN}--help{RESET}           Show this help message and exit.
+    {GREEN}--model{RESET} Model to use {{perplexity, gemini, deepseek, llama}}. Default: {GREEN}deepseek{RESET}.
+                            Specify the model to use for query processing.
+    {GREEN}-u{RESET} UPDATE, {GREEN}--update{RESET} UPDATE
+                            Update Lgpt to the latest version.
+    {GREEN}-v{RESET}, {GREEN}--version{RESET}        Display the current version of Lgpt.
+    """
+    
+    return help_message
+
+def error_string_styled(error: str) -> str: return f"{RED}{BOLD}{error}{RESET}"

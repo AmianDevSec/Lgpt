@@ -1,23 +1,18 @@
 import sys
 from argparse import ArgumentParser
 from query_process import process_query
-from utils import typewriter, thinking_effect
-import threading
-
-# Setup thinking animation
-stop_event = threading.Event()
-thinking_thread = threading.Thread(
-    target=thinking_effect, kwargs={"stop_event": stop_event}
-)
+from utils import typewriter, helper, error_string_styled
+from lgpt_updater import stop_event, thinking_thread, lgpt_updater  
 
 LGPT_VERSION = "1.2.0"
 
-def parse_args():
-    response = None
-
+def lgpt() -> None:
+    response = ""
+    
     try:
         thinking_thread.start()
         parser = ArgumentParser(
+            add_help=False,
             description="Lgpt: A command-line utility for managing and interacting with large language models (LLMs) from the Linux terminal."
         )
 
@@ -30,34 +25,44 @@ def parse_args():
         )
 
         parser.add_argument(
+            '-h', 
+            '--help', 
+            action='store_true', 
+            help='Show help and exit')
+
+        parser.add_argument(
             "prompt",
             type=str,
             nargs='*',
             help="The prompt to send to the model."
         )
-        
-        
+
         parser.add_argument(
-            "-u","--update",
-            type=str,
+            "-u",
+            "--update",
+            action="store_true",
             help="Update Lgpt to latest version."
         )
 
         parser.add_argument(
-            "-v","--version",
+            "-v",
+            "--version",
             action="store_true",
-            help="See Lgpt version."
+            help="Prints the current version of Lgpt.",
         )
 
         args = parser.parse_args()
-        model = args.model
-        update = parser.update
-        version = parser.version
 
-        
+        model = args.model
+        update = args.update
+        version = args.version
+        help = args.help
+        prompt = ""
+
         if update:
-            # call update funciton
-            ...
+            return lgpt_updater()
+        elif help:
+            response = helper()
         elif version:
             response = LGPT_VERSION
         elif not sys.stdin.isatty():
@@ -65,12 +70,15 @@ def parse_args():
         else:
             prompt = " ".join(args.prompt)
 
-        response = process_query(prompt, model) if not bool(response) else response
-
+        response = process_query(prompt, model) if not bool(response) and bool(prompt) else response
+        # isError = False
+        
     except (KeyboardInterrupt, EOFError):
-        response = "Process interrupted by user. Exiting..."
+        response = error_string_styled("Process interrupted by user. Exiting...")
+        # isError = True
     except Exception as e:
-        response = f"An error occurred: {e}"
+        response = error_string_styled(f"An error occurred: {e}")
+        # isError = True
     finally:
         stop_event.set()
         thinking_thread.join()
@@ -78,7 +86,6 @@ def parse_args():
     return typewriter(response)
 
 if __name__ == "__main__":
-    parse_args()
-
+    lgpt()
 
 # https://ko-fi.com/amiandev#
