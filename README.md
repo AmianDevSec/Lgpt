@@ -95,5 +95,5 @@ This project is licensed under the GPLv3 License. See the [LICENSE](LICENSE) fil
 
 ---
 
-<p align="center">This project was inpired by <a href="https://github.com/aandrew-me/tgpt" target='_blank' >Terminal GPT(tgpt)</a></p>
+<p align="center">This project was inspired by <a href="https://github.com/aandrew-me/tgpt" target='_blank' >Terminal GPT(tgpt)</a></p>
 ```
