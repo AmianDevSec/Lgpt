@@ -69,20 +69,6 @@ def typewriter(text: str, delay=0.004):
 
     print()
 
-# def custom_assert(condition: bool, message: str):
-#     """
-#     Custom assert function to raise an AssertionError with a message if the condition is False.
-
-#     Args:
-#         condition (bool): The condition to check.
-#         message (str): The message to display if the assertion fails.
-#     """
-
-#     if not condition:
-#         typewriter(f"{RED}{BOLD}{message}{RESET}")
-#         sys.exit(1)
-
-
 def helper() -> str:
     """
     Display a help message with usage instructions.
