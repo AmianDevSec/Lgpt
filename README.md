@@ -16,7 +16,7 @@
 
 ## Supported Providers (No API Keys Required)
 
-Lgpt currently supports these providers to process your queries without the hassle of API keys:
+Lgpt currently supports these providers to process your queries:
 
 * [Deepseek](https://www.deepseek.com/)
 * [llama](https://www.ollama.com/)
