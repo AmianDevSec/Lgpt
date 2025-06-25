@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="lgpt.jpg" alt="Linux GPT Logo" width="180" />
+  <img src="lgpt.jpg" alt="Linux GPT Logo" width="100%" height='auto' />
 </p>
 
 # Linux GPT (lgpt)
