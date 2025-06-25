@@ -87,5 +87,3 @@ def lgpt() -> None:
 
 if __name__ == "__main__":
     lgpt()
-
-# https://ko-fi.com/amiandev#
