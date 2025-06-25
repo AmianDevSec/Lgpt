@@ -77,16 +77,13 @@ regex_config = {
 
 def markdown_to_ansi(text: str) -> str:
     
-    # 1. Extract code blocks
+    # Extract code blocks
     text_no_code, code_blocks = extract_code_blocks(text)
 
     for pattern, (replacement, flags) in regex_config.items():
-        if flags is not None:
-            text_no_code = re.sub(pattern, replacement, text_no_code, flags=flags)
-        else:
-            text_no_code = re.sub(pattern, replacement, text_no_code)
+        text_no_code = re.sub(pattern, replacement, text_no_code, flags=flags or 0)
             
-    # 3. Restore the code blocks back
+    # Restore the code blocks back
     text_final = restore_code_blocks(text_no_code, code_blocks)
 
     return text_final
