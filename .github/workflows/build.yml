@@ -5,13 +5,13 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  APP_NAME: lgpt
+
 jobs:
-  build:
-    name: Build on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+  build_linux:
+    name: Build on Linux
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -24,15 +24,20 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install pyinstaller requests
 
-      - name: Build executable
+      - name: Build Linux executable
         run: |
-          pyinstaller --onefile --noconsole lgpt.py
+          pyinstaller --onefile --noconsole ${{ env.APP_NAME }}.py
 
-      - name: Upload artifact
+      - name: Rename binary to lgpt-amd64
+        run: |
+          mkdir -p release
+          mv dist/${{ env.APP_NAME }} release/lgpt-amd64
+
+      - name: Upload executable
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ runner.os }}-build
-          path: dist/
+          name: lgpt-amd64
+          path: release/lgpt-amd64
