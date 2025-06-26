@@ -12,7 +12,7 @@ def process_query(query: str, model: str) -> str:
         str: The processed query result.
     """
 
-    url = f"https://shocked-oneida-amian-devsec-ab93771e.koyeb.app/ai/{model}?prompt={query}"
+    url = f"https://https://lgpt-back-end.onrender.com/ai/{model}?prompt={query}"
     encoded_url = quote(url, safe=':/?&=-')
 
     send_query = request("GET", encoded_url)
