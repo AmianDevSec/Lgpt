@@ -65,20 +65,15 @@ def lgpt() -> None:
             response = helper()
         elif version:
             response = LGPT_VERSION
-        elif not sys.stdin.isatty():
-            prompt = sys.stdin.read().strip()
         else:
-            prompt = " ".join(args.prompt)
+            prompt = f"{" ".join(args.prompt)} {sys.stdin.read().strip()}"
 
         response = process_query(prompt, model) if not bool(response) and bool(prompt) else response
-        # isError = False
         
     except (KeyboardInterrupt, EOFError):
         response = error_string_styled("Process interrupted by user. Exiting...")
-        # isError = True
     except Exception as e:
         response = error_string_styled(f"An error occurred: {e}")
-        # isError = True
     finally:
         stop_event.set()
         thinking_thread.join()
