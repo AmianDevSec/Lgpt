@@ -5,9 +5,8 @@ set -e
 path=/usr/local/bin
 
 # Check if the system is Linux
-unameOut=$(uname -s)
 
-if [[ "${unameOut,,}" == "linux" ]]; then
+if [[ "$(uname -s)" == "Linux" ]]; then
   echo "Unsupported platform $(uname -s)"
   exit 1
 fi
