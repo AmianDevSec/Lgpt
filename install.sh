@@ -5,9 +5,11 @@ set -e
 path=/usr/local/bin
 
 # Check if the system is Linux
-if [[ $(uname -s) != "linux" ]]; then
-    echo "Unsupported platform $(uname -s)"
-    exit 1
+unameOut=$(uname -s)
+
+if [[ "${unameOut,,}" == "linux" ]]; then
+  echo "Unsupported platform $(uname -s)"
+  exit 1
 fi
 
 # >> Check if curl is installed or nor
