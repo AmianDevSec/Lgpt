@@ -9,7 +9,7 @@ env:
 
 jobs:
   build_amd64:
-    name: Build Linux x86_64 (amd64)
+    name: Build Linux amd64
     runs-on: ubuntu-latest
 
     steps:
