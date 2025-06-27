@@ -13,12 +13,12 @@ from markdown_handler import (
     BLUE
 )
 
-def thinking_effect(message="Processing", stop_event=None):
-    """Display a thinking animation in the terminal.
+def loading_effect(message="Processing", stop_event=None):
+    """Display a loading animation in the terminal.
     This function prints a message followed by a series of dots that cycle
     
     Args:
-        message (str, optional): The message to display. Defaults to "Thinking".
+        message (str, optional): The message to display. Defaults to "Loading".
         stop_event (threading.Event, optional): An event to signal when to stop the animation. Defaults to None.
     If stop_event is provided, the animation will stop when the event is set.
     """

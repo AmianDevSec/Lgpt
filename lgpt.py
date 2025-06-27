@@ -2,7 +2,7 @@ import sys
 from argparse import ArgumentParser
 from query_process import process_query
 from utils import typewriter, helper, error_string_styled
-from lgpt_updater import stop_event, thinking_thread, lgpt_updater  
+from lgpt_updater import stop_event, loading_thread, lgpt_updater  
 
 LGPT_VERSION = "1.2.0"
 
@@ -10,7 +10,7 @@ def lgpt() -> None:
     response = ""
     
     try:
-        thinking_thread.start()
+        loading_thread.start()
         parser = ArgumentParser(
             add_help=False,
             description="Lgpt: A command-line utility for managing and interacting with large language models (LLMs) from the Linux terminal."
@@ -77,7 +77,7 @@ def lgpt() -> None:
         response = error_string_styled(f"An error occurred: {e}")
     finally:
         stop_event.set()
-        thinking_thread.join()
+        loading_thread.join()
 
     return typewriter(response)
 

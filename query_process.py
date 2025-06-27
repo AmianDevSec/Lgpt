@@ -12,7 +12,10 @@ def process_query(query: str, model: str) -> str:
     Return:
         str: The processed query result.
     """
-    if not bool(query.strip()) : return "Hey! You forgot to send a prompt. I'm just sitting here... waiting"
+
+    default_reply = "Hey! You forgot to send a prompt. I'm just sitting here... waiting"
+    if not bool(query.strip()) :  return default_reply
+    
     url = f"https://lgpt-back-end.onrender.com/ai/{model}?prompt={query}"
     encoded_url = quote(url, safe=':/?&=-')
 

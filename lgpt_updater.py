@@ -1,19 +1,19 @@
 import subprocess as sub
 from markdown_handler import RED, GREEN, RESET, BOLD
-from utils import typewriter, thinking_effect, error_string_styled
+from utils import typewriter, loading_effect, error_string_styled
 import threading
 
-# Setup thinking animation
+# Setup loading animation
 stop_event = threading.Event()
-thinking_thread = threading.Thread(
-    target=thinking_effect, kwargs={"stop_event": stop_event}
+loading_thread = threading.Thread(
+    target=loading_effect, kwargs={"stop_event": stop_event}
 )
 
 def lgpt_updater() -> None:
     output = ""
 
     try:
-        thinking_thread.start()
+        loading_thread.start()
         get_os_arch = sub.run('uname -m', shell=True, capture_output=True, check=True)
         os_arch = get_os_arch.stdout.decode().strip()
         url = f"https://github.com/AmianDevSec/Lgpt/releases/latest/download/lgpt-{os_arch}"
@@ -38,6 +38,6 @@ def lgpt_updater() -> None:
         output = error_string_styled(f"An error occurred during the update: {e}")
     finally:
         stop_event.set()
-        thinking_thread.join()
+        loading_thread.join()
 
     return typewriter(output)
