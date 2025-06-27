@@ -13,7 +13,7 @@ from markdown_handler import (
     BLUE
 )
 
-def thinking_effect(message="Thinking", stop_event=None):
+def thinking_effect(message="Processing", stop_event=None):
     """Display a thinking animation in the terminal.
     This function prints a message followed by a series of dots that cycle
     
@@ -23,7 +23,7 @@ def thinking_effect(message="Thinking", stop_event=None):
     If stop_event is provided, the animation will stop when the event is set.
     """
     
-    for dot in itertools.cycle([".", "..", "..."]):
+    for dot in itertools.cycle(['',".", "..", "..."]):
         
         if stop_event.is_set():
             break
