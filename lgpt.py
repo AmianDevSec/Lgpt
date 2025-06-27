@@ -66,7 +66,7 @@ def lgpt() -> None:
         elif version:
             response = LGPT_VERSION
         else:
-            prompt = f"{" ".join(args.prompt)} {sys.stdin.read().strip()}"
+            prompt = f"{' '.join(args.prompt)} {sys.stdin.read().strip()}"
 
         response = process_query(prompt, model) if not bool(response) and bool(prompt) else response
         
