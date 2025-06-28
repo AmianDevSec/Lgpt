@@ -1,11 +1,12 @@
 name: Build Lgpt Executables
 
 on:
-  push:           
+  push:
   workflow_dispatch:
 
 env:
   APP_NAME: lgpt
+  TEXT_FILE: version.txt
 
 jobs:
   build_amd64:
@@ -28,7 +29,9 @@ jobs:
 
       - name: Build amd64 binary
         run: |
-          pyinstaller --onefile --noconsole ${{ env.APP_NAME }}.py
+          pyinstaller --onefile --noconsole \
+            --add-data "${{ env.TEXT_FILE }}:." \
+            ${{ env.APP_NAME }}.py
 
       - name: Rename amd64 binary
         run: |
@@ -59,7 +62,11 @@ jobs:
           docker run --rm -v $PWD:/src -w /src --platform linux/arm64 python:3.11-slim bash -c "
             apt-get update && apt-get install -y gcc && \
             pip install pyinstaller requests && \
-            pyinstaller --onefile --noconsole ${{ env.APP_NAME }}.py && \
+            pyinstaller --onefile --noconsole \
+              --add-data '${{ env.TEXT_FILE }}:.' \
+              ${{
+                env.APP_NAME
+              }}.py && \
             mkdir -p release && \
             mv dist/${{ env.APP_NAME }} release/lgpt-arm64
           "
