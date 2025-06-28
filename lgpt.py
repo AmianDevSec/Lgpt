@@ -3,9 +3,8 @@ from argparse import ArgumentParser
 from query_process import process_query
 from utils import typewriter, helper, error_string_styled
 from lgpt_updater import stop_event, loading_thread, lgpt_updater  
-from lgpt_version import get_lgpt_version
 
-LGPT_VERSION = get_lgpt_version()
+LGPT_VERSION = "1.2.0"
 
 def lgpt() -> None:
     response = ""
