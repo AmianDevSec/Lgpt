@@ -22,7 +22,7 @@ def process_query(query: str, model: str) -> str:
     response = ''
     
     try:
-        send_query = request("GET", encoded_url, timeout=20)
+        send_query = request("GET", encoded_url, timeout=60)
 
         json_data = send_query.json()
         response = json_data["response"]

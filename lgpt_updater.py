@@ -25,7 +25,10 @@ def lgpt_updater() -> None:
             "sudo chmod +x /usr/local/bin/lgpt"
         )
 
-        run_update= sub.run(command, shell=True, capture_output=True, check=True)
+        run_update = sub.run(command, shell=True, capture_output=True, check=True)
+        update_verbose = run_update.stdout.decode()
+        typewriter(update_verbose)
+
         output = f"{GREEN}{BOLD}Update successfully.{RESET}" 
 
     except Exception as e :
