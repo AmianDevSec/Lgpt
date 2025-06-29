@@ -1,10 +1,8 @@
 import sys
 from argparse import ArgumentParser
-from query_process import process_query
+from query_process import process_query, LGPT_VERSION
 from utils import typewriter, helper, error_string_styled
 from lgpt_updater import stop_event, loading_thread, lgpt_updater  
-
-LGPT_VERSION = "1.2.0"
 
 def lgpt() -> None:
     response = ""

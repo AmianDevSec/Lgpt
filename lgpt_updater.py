@@ -1,5 +1,5 @@
 import subprocess as sub
-from markdown_handler import RED, GREEN, RESET, BOLD
+from markdown_handler import RED, GREEN, RESET, BOLD, BLUE
 from utils import typewriter, loading_effect, error_string_styled
 import threading
 
@@ -25,9 +25,7 @@ def lgpt_updater() -> None:
             "sudo chmod +x /usr/local/bin/lgpt"
         )
 
-        run_update = sub.run(command, shell=True, capture_output=True, check=True)
-        update_verbose = run_update.stdout.decode()
-        typewriter(update_verbose)
+        sub.run(command, shell=True, capture_output=True, check=True)
 
         output = f"{GREEN}{BOLD}Update successfully.{RESET}" 
 
