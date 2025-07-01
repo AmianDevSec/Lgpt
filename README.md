@@ -9,7 +9,7 @@
 **Lgpt (Linux GPT)** is a lightweight command-line tool that simplifies your Linux terminal experience by integrating powerful large language models (LLMs) — all **without needing API keys**.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fcf764a3-39ba-4ab0-a9c6-3d9a44b22e6b" alt="Linux GPT demo" width="800" height="500" />
+  <img src="https://github.com/user-attachments/assets/68b6cd01-f398-4a68-8bc0-e9dd6afd97f2" alt="Linux GPT demo" width="800" height="500" />
 </p>
 
 ---
