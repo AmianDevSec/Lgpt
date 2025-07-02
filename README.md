@@ -48,7 +48,7 @@ Optional arguments:
 **Example:**
 
 ```bash
-lgpt --model gemini "How to update my system packages?"
+lgpt --model perplexity "How to update my system packages?"
 ```
 
 ---
