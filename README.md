@@ -7,7 +7,7 @@
     <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Buy Me a Coffee at Ko-fi" style="height: 45px;" />
   </a>
   <br />
-  <em>If you find PrivForge useful, consider supporting development with a coffee ☕️</em>
+  <em>If you find Linux GPT useful, consider supporting development with a coffee ☕️</em>
 </p>
 
 # Linux GPT (lgpt)
@@ -89,6 +89,15 @@ sudo rm $(which lgpt)
 
 Feel free to open issues or submit pull requests on the [GitHub repository](https://github.com/AmianDevSec/Lgpt). Contributions and feedback are welcome!
 
+If you find **Linux GPT** helpful in your work or studies, please consider supporting its development with a coffee:
+
+<p align="center">
+  <a href="https://ko-fi.com/amiandevsec" target="_blank" rel="noopener">
+    <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Buy Me a Coffee" style="height: 50px;" />
+  </a>
+</p>
+
+Your support helps keep the project alive and evolving! ☕️
 ---
 
 ## License
