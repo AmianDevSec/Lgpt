@@ -2,6 +2,14 @@
   <img src="lgpt.jpg" alt="Linux GPT Logo" width="100%" height='auto' />
 </p>
 
+<p align="center">
+  <a href="https://ko-fi.com/amiandevsec" target="_blank" rel="noopener">
+    <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Buy Me a Coffee at Ko-fi" style="height: 45px;" />
+  </a>
+  <br />
+  <em>If you find PrivForge useful, consider supporting development with a coffee ☕️</em>
+</p>
+
 # Linux GPT (lgpt)
 
 [![GitHub Release](https://img.shields.io/github/v/release/AmianDevSec/Lgpt)](https://github.com/AmianDevSec/Lgpt/releases/latest)
