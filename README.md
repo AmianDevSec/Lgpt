@@ -85,19 +85,10 @@ sudo rm $(which lgpt)
 
 ---
 
-## Contribution & Support
+## Contribution
 
 Feel free to open issues or submit pull requests on the [GitHub repository](https://github.com/AmianDevSec/Lgpt). Contributions and feedback are welcome!
 
-If you find **Linux GPT** helpful in your work or studies, please consider supporting its development with a coffee:
-
-<p align="center">
-  <a href="https://ko-fi.com/amiandevsec" target="_blank" rel="noopener">
-    <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Buy Me a Coffee" style="height: 50px;" />
-  </a>
-</p>
-
-Your support helps keep the project alive and evolving! ☕️
 ---
 
 ## License
@@ -107,4 +98,3 @@ This project is licensed under the GPLv3 License. See the [LICENSE](LICENSE) fil
 ---
 
 <p align="center">This project was inspired by <a href="https://github.com/aandrew-me/tgpt" target='_blank' >Terminal GPT(tgpt)</a></p>
-```
