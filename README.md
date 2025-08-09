@@ -20,10 +20,15 @@
 
 Lgpt currently supports these providers to process your queries:
 
+* [GPT-4](https://openai.com/research/gpt-4)
+* [GPT-4o](https://openai.com)
 * [Deepseek](https://www.deepseek.com/)
-* [llama](https://www.ollama.com/)
-* [Gemini](https://gemini.google.com)
-* [Perplexity](https://www.perplexity.ai)
+* [Mistral](https://mistral.ai/)
+* [LLaMA](https://ai.meta.com/llama/)
+* [GPT-O3](https://openai.com)
+* [Grok](https://x.ai/grok)
+* [Cohere](https://cohere.ai/)
+* [Codestral](https://mistral.ai)
 
 ---
 
@@ -32,39 +37,71 @@ Lgpt currently supports these providers to process your queries:
 Run `lgpt` followed by your query or options:
 
 ```bash
-Usage: lgpt [-h] [--model {perplexity, gemini, deepseek, llama}] [-u UPDATE] [-v] [prompt ...]
+Usage: lgpt.py [-h] [-t TOKEN] [--model {gpt-4,gpt-4o,deepseek,mistral,llama,gpt-o3,grok,cohere,codestral}] [-s SET_MODEL] [-u UPDATE] [-v] [prompt ...]
 
-Lgpt — Command-line interface for querying large language models (LLMs) on Linux.
+Lgpt: A command-line utility for managing and interacting with large language models (LLMs) directly from the Linux terminal.
 
 Positional arguments:
-  prompt                Your input query or command for the model.
+
+  prompt                The prompt to send to the selected model.
 
 Optional arguments:
+
   -h, --help            Show this help message and exit.
-  --model               Choose model {perplexity, gemini, deepseek, llama}. Default is deepseek.
-  -u UPDATE, --update UPDATE
-                        Update lgpt to the latest version.
-  -v, --version         Show current lgpt version.
+
+  -t, --token           Set your API key token.
+
+  --model               Specify the model to use for query processing.
+                        Available models: gpt-4, gpt-4o, deepseek, mistral, llama, gpt-o3, grok, cohere, codestral.
+                        Default: grok.
+
+  -s, --set_model       Set your default model.
+
+  -u, --update          Update Lgpt to the latest version.
+
+  -v, --version         Display the current version of Lgpt.
 ````
 
 **Example:**
 
+### Setting Your API Key
+
+Set your API key by running:
+
 ```bash
-lgpt --model perplexity "How to update my system packages?"
+lgpt --token <your_api_key_here>
 ```
+
+---
+
+### Using Lgpt with Your API Key
+
+Once the API key is set, you can use Lgpt as follows:
+
+```bash
+lgpt "How to update my system packages?"
+```
+
+---
+
+### Changing the Default Model
+
+You can change the default model with:
+
+```bash
+lgpt --set_model <your_favorite_model>
+```
+
+> **Tip:** Run `lgpt -h` to view the list of available models.
 
 ---
 
 ## Installation
 
-### GNU/Linux
-
-By default, `lgpt` installs to `/usr/local/bin`. You can change this location as needed but ensure it’s in your system’s `$PATH` for easy use.
-
 Run the following command to install:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/AmianDevSec/Lgpt/main/install.sh | bash -s /usr/local/bin
+pip install lgpt
 ```
 
 After installation, verify by running:
@@ -77,10 +114,8 @@ lgpt --version
 
 ## Uninstallation
 
-If installed via the install script, remove the executable with:
-
 ```bash
-sudo rm $(which lgpt)
+pip uninstall lgpt
 ```
 
 ---
@@ -97,4 +132,4 @@ This project is licensed under the GPLv3 License. See the [LICENSE](LICENSE) fil
 
 ---
 
-<p align="center">This project was inspired by <a href="https://github.com/aandrew-me/tgpt" target='_blank' >Terminal GPT(tgpt)</a></p>
+<p align="center">This project was inspired by <a href="https://github.com/aandrew-me/tgpt" target='_blank' >Terminal GPT(tgpt)</a></p
