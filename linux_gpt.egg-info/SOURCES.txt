@@ -6,12 +6,6 @@ setup.py
 lgpt/.env
 lgpt/__init__.py
 lgpt/lgpt.py
-lgpt.egg-info/PKG-INFO
-lgpt.egg-info/SOURCES.txt
-lgpt.egg-info/dependency_links.txt
-lgpt.egg-info/entry_points.txt
-lgpt.egg-info/requires.txt
-lgpt.egg-info/top_level.txt
 lgpt/utils/__init__.py
 lgpt/utils/__version__.py
 lgpt/utils/get_path.py
@@ -23,3 +17,9 @@ lgpt/utils/markdown_handler.py
 lgpt/utils/models.py
 lgpt/utils/utils.py
 lgpt/utils/version_controller.py
+linux_gpt.egg-info/PKG-INFO
+linux_gpt.egg-info/SOURCES.txt
+linux_gpt.egg-info/dependency_links.txt
+linux_gpt.egg-info/entry_points.txt
+linux_gpt.egg-info/requires.txt
+linux_gpt.egg-info/top_level.txt

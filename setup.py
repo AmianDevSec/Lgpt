@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="lgpt",
+    name="linux-gpt",
     version="1.3.0",
     description="An elite terminal-based assistant for Linux developers, security engineers, and ethical hackers.",
     author="AmianDevSec",
