@@ -15,9 +15,9 @@ def lgpt_updater() -> None:
     output = ""
 
     try:
-        
+
         sub.run(
-            [sys.executable, "-m", "pip", "install", "--upgrade", "lgpt"],
+            [sys.executable, "-m", "pip", "install", "--upgrade", "linux-gpt"],
             check=True,
         )
 
@@ -25,7 +25,7 @@ def lgpt_updater() -> None:
 
     except sub.CalledProcessError as e:
         output = error_string_styled(
-            f"Update failed. Try manually with: pip install --upgrade lgpt"
+            f"Update failed. Try manually with: pip install --upgrade linux-gpt"
         )
     except Exception as e:
         output = error_string_styled(

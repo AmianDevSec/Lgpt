@@ -52,6 +52,8 @@ def typewriter(text: str, delay=0.004):
         return
 
     i = 0
+    print("\n")
+    
     while i < len(styled):
         char = styled[i]
 
@@ -71,7 +73,7 @@ def typewriter(text: str, delay=0.004):
         time.sleep(delay)
         i += 1
 
-    print()
+    print("\n")
 
 
 def helper(models: str, default_model: str) -> str:
