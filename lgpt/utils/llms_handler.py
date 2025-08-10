@@ -76,7 +76,8 @@ def fetch_llm_response(query: str, model: str, api_key) -> str:
             "The request timed out. The server is taking too long to respond. Please try again in a few moments."
         )
 
-    except (Exception, requests.exceptions.RequestException):
+    except (Exception, requests.exceptions.RequestException) as e:
+        # print(e)
         return error_string_styled(
             "Oops! An unexpected error occurred. Please try again."
         )

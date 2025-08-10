@@ -101,7 +101,7 @@ lgpt --set_model <your_favorite_model>
 Run the following command to install:
 
 ```bash
-pip install lgpt
+pip install linux-gpt
 ```
 
 After installation, verify by running:
@@ -115,7 +115,7 @@ lgpt --version
 ## Uninstallation
 
 ```bash
-pip uninstall lgpt
+pip uninstall linux-gpt
 ```
 
 ---

@@ -25,7 +25,7 @@ def get_latest_version(package_name: str):
     
     return None
 
-def notify_if_update_available(current_version: str = vs.__version__, package_name: str = "lgpt"):
+def notify_if_update_available(current_version: str = vs.__version__, package_name: str = "linux-gpt"):
     latest = get_latest_version(package_name)
 
     latest_v_condition = latest and version.parse(latest)
