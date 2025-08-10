@@ -64,14 +64,18 @@ Optional arguments:
 
 **Example:**
 
-### Setting Your API Key
+---
 
-Set your API key by running:
+### **Setting Your API Key**
+
+1. Go to **[GitHub Personal Access Tokens](https://github.com/settings/tokens)**.
+2. Watch this short [Video guide](https://drive.google.com/file/d/13lErLEm7phYOEwOFKdPvbtx_CmBIGSTX/view?usp=sharing) to learn how to create a token for **lgpt**.
+
+Once you have your token, set it by running:
 
 ```bash
 lgpt --token <your_api_key_here>
 ```
-
 ---
 
 ### Using Lgpt with Your API Key
