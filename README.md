@@ -133,3 +133,7 @@ Feel free to open issues or submit pull requests on the [GitHub repository](http
 ## License
 
 This project is licensed under the GPLv3 License. See the [LICENSE](LICENSE) file for details.
+
+<p align="center">
+  <em>Linux GPT (Lgpt) was inspired by <a href="https://github.com/aandrew-me/tgpt" target="_blank">Terminal GPT (tgpt)</a>, and built to bring an even more versatile, API-key-free LLM experience to your Linux terminal.</em>
+</p>
